@@ -11,10 +11,25 @@ function createPost() {
   const postAuthor = document.getElementById("postAuthor").value;
   const postBody = document.getElementById("postBody").value;
 
-  
+  const blogSection = postTemplate({'title': postTitle, 'body': postBody, 'author': postAuthor});
+  const commentsSection = commentsTemplate();
+  let postElement = document.getElementById("post");
 
+  postElement.innerHTML = blogSection;
+  postElement.getElementsByTagName("footer")[0].innerHTML = commentsSection;
 };
 
 function postComment() {
+  const commenter = document.getElementById("commenterName").value;
+const comment = document.getElementById("commentText").value;
 
+const commentTemplate = document.getElementById("comment-template").innerHTML;
+
+const templateFn = _.template(commentTemplate);
+
+let commentsDiv = document.getElementById("comments");
+
+const templateHTML = templateFn({'comment': comment, 'commenter': commenter});
+
+commentsDiv.innerHTML += templateHTML;
 };
