@@ -5,3 +5,7 @@ function createPost() {
 
 
 };
+
+function postComment() {
+
+};
