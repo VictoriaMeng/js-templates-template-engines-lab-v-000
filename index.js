@@ -11,13 +11,14 @@ function createPost() {
   const postAuthor = document.getElementById("postAuthor").value;
   const postBody = document.getElementById("postBody").value;
 
+  document.getElementsByTagName("main")[0].innerHTML += pageTemplate();
+
   const blogSection = postTemplate({'title': postTitle, 'body': postBody, 'author': postAuthor});
   const commentsSection = commentsTemplate();
   let postElement = document.getElementById("post");
 
   postElement.innerHTML = blogSection;
-  postElement.getElementsByTagName("footer")[0].innerHTML = commentsSection;
-};
+  postElement.getElementsByTagName("footer")[0].innerHTML = commentsSection;};
 
 function postComment() {
   const commenter = document.getElementById("commenterName").value;
